@@ -17,7 +17,7 @@ public class ProductsController(IGenericRepository<Product> repo) : BaseAPIContr
     [FromQuery]ProductSpecParams specParams)
   {
     var spec = new ProductSpecification(specParams);
-    return await CreatePagedResult<Product>(repo, spec, specParams.PageIndex, specParams.PageSize);
+    return await CreatePagedResult(repo, spec, specParams.PageIndex, specParams.PageSize);
   }
 
   [HttpGet("{id:int}")]
